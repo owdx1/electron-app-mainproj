@@ -13,10 +13,8 @@ export class ServerManager {
   private PORT: number = 8000;
 
   private dbService: DBService
-
   private httpExpressService: HttpExpressService
   private socketService: SocketService
-
 
   constructor() {
     
@@ -31,7 +29,7 @@ export class ServerManager {
 
     this.dbService = DBService.GetInstance();
   
-    this.httpExpressService = new HttpExpressService(this.app, this.dbService)
+    this.httpExpressService = new HttpExpressService(this.app)
 
     this.socketService = new SocketService(this.io, this.dbService)
 

@@ -39,4 +39,24 @@ export class DBService {
       console.error("Error: ",  error)
     }
   }
+  
+  public GetUserByUserEmail(email: string) {
+    try {
+
+      const user = this.prisma.user.findFirst({
+        where: {
+          email
+        }
+      })
+
+      if(!user) { 
+        return null
+      }
+
+      return user;
+
+    } catch (error) {
+      console.error("Error: ",  error)
+    }
+  }
 }

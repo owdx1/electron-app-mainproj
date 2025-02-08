@@ -24,7 +24,6 @@ export class SocketService {
     this.io.to(socketId).emit('server-message', message);
   }
 
-
   private setupSocketChannels() {
 
     if(!this.io) {
@@ -37,7 +36,7 @@ export class SocketService {
       socket.on('authenticate', async(userid: string) => {
         const currentUserId = this.socketUserMap.get(socket.id);
 
-        if(currentUserId != undefined) {
+        if(currentUserId !== undefined) {
           this.SendMessage(socket.id, "User is already connected.")
           return
         }
